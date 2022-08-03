@@ -14,8 +14,7 @@
         "symfony/validator": ">=4.4",
         "symfony/maker-bundle": ">=1.0",
         "sensio/framework-extra-bundle": ">=4",
-        "doctrine/annotations": ">=1.0",
-        "cnam/front-bundle": ">1.0.0-beta"
+        "doctrine/annotations": ">=1.0"
     },
     "autoload": {
         "psr-4": { "Sbyaute\\FrontBundleMakerBundle\\": "src/" }

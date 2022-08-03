@@ -1,0 +1,23 @@
+{
+    "name": "sbyaute/frontbundle-maker",
+    "type": "symfony-bundle",
+    "description": "Ce bundle offre une interface permettant de créer des interfaces CRUD basées sur front-bundle.",
+    "keywords": [ "frontbundle", "crud" ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.3",
+        "symfony/twig-bundle": ">=4.4",
+        "symfony/console": ">=4.4",
+        "symfony/form": ">=4.4",
+        "symfony/security-bundle": ">=4.4",
+        "symfony/translation": ">=4.4",
+        "symfony/validator": ">=4.4",
+        "symfony/maker-bundle": ">=1.0",
+        "sensio/framework-extra-bundle": ">=4",
+        "doctrine/annotations": ">=1.0",
+        "cnam/front-bundle": ">1.0.*"
+    },
+    "autoload": {
+        "psr-4": { "Sbyaute\\FrontBundleMakerBundle\\": "src/" }
+    }
+}

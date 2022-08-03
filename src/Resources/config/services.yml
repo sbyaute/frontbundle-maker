@@ -1,0 +1,38 @@
+services:
+
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+
+    app.maker.frontbundle.make_crud:
+        class: Sbyaute\FrontBundleMakerBundle\Maker\MakeFrontBundleCrud
+        arguments: ['@maker.doctrine_helper','@maker.renderer.form_type_renderer']
+        calls:
+            - [setConfiguration, ['%frontbundle-maker%']]
+            - [configureCommand, ['@security.command.user_password_encoder', '@?']]
+            - [interact, ['@?', '@?', '@security.command.user_password_encoder']]
+        tags:
+            - { name: maker.command }
+
+    app.maker.frontbundle.make_crudmodal:
+        class: Sbyaute\FrontBundleMakerBundle\Maker\MakeFrontBundleCrudModal
+        arguments: ['@maker.doctrine_helper','@maker.renderer.form_type_renderer']
+        calls:
+            - [setConfiguration, ['%frontbundle-maker%']]
+            - [configureCommand, ['@security.command.user_password_encoder', '@?']]
+            - [interact, ['@?', '@?', '@security.command.user_password_encoder']]
+        tags:
+            - { name: maker.command }
+
+    app.maker.frontbundle.make_controller:
+        class:  Sbyaute\FrontBundleMakerBundle\Maker\MakeFrontBundleController
+        # arguments: ['@maker.doctrine_helper','@maker.renderer.form_type_renderer']
+        calls:
+            - [setConfiguration, ['%frontbundle-maker%']]
+            - [configureCommand, ['@security.command.user_password_encoder', '@?']]
+            - [interact, ['@?', '@?', '@security.command.user_password_encoder']]
+        tags:
+            - { name: maker.command }

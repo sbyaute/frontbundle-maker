@@ -1,0 +1,27 @@
+<?= $entity_class_name ?>.new.error: 'Une erreur est survenue lors de l''enregistrement'
+<?= $entity_class_name ?>.new.success: 'Enregistrement effectué avec succès'
+<?= $entity_class_name ?>.edit.error: 'Une erreur est survenue lors de l''édition'
+<?= $entity_class_name ?>.edit.success: 'Edition effectuée avec succès'
+<?= $entity_class_name ?>.delete.error: 'Une erreur est survenue lors de la suppression'
+<?= $entity_class_name ?>.delete.success: 'Suppression effectuée avec succès'
+<?= $entity_class_name ?>.edit.boxtitle: 'Editer un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.edit.btn.mettreajour: 'Mettre à jour'
+<?= $entity_class_name ?>.edit.btn.retourliste: 'Retour à la liste'
+<?= $entity_class_name ?>.edit.pagetitle: 'Editer un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.edit.subtitle: 'Sous titre'
+<?= $entity_class_name ?>.index.boxtitle: 'Liste des <?= $entity_class_name ?>s'
+<?= $entity_class_name ?>.index.btn.ajouter: Ajouter
+<?= $entity_class_name ?>.index.pagetitle: 'Liste des <?= $entity_class_name ?>s'
+<?= $entity_class_name ?>.index.subtitle: 'Sous titre'
+<?= $entity_class_name ?>.index.btn.voir: Voir
+<?= $entity_class_name ?>.index.btn.editer: Editer
+<?= $entity_class_name ?>.new.boxtitle: 'Ajouter un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.new.btn.retourliste: 'Retour à la liste'
+<?= $entity_class_name ?>.new.pagetitle: 'Ajouter un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.new.subtitle: 'Sous titre'
+<?= $entity_class_name ?>.show.boxtitle: 'Voir un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.show.btn.editer: Editer
+<?= $entity_class_name ?>.show.btn.retourliste: 'Retour à la liste'
+<?= $entity_class_name ?>.show.pagetitle: 'Voir un <?= $entity_class_name ?>'
+<?= $entity_class_name ?>.show.subtitle: 'Sous titre'
+<?= $entity_class_name ?>.form.btn.valider: 'Valider'

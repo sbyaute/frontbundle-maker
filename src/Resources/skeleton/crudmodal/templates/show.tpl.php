@@ -29,14 +29,13 @@
             <tbody>
 <?php foreach ($entity_fields as $field): ?>
 <?php if ($field['type'] == 'boolean'): ?>
-<?php //dump($field); exit() ?>
                 <tr>
                     <th>{{ '<?= $entity_twig_var_singular ?>.<?= $field['fieldName'] ?>'|trans({}, '<?= $entity_twig_var_singular ?>') }}</th>
                     <td>{{ <?= $entity_twig_var_singular ?>.<?= $field['fieldName'] ?> ? '<span><i class="bi-check-lg"></i></span>' : '<span><i class="bi-x-lg"></i></span>' }}</td>
                 </tr>
 <?php else: ?>
         <tr>
-            <th>{{ '<?= $entity_twig_var_singular ?>.<?= $field['fieldName'] ?>'|trans({},'<?= $entity_twig_var_singular ?>') }}</th>
+            <th>{{ '<?= $entity_twig_var_singular ?>.<?= $field['fieldName'] ?>'|trans({}, '<?= $entity_twig_var_singular ?>') }}</th>
             <td>{{ <?= $entity_twig_var_singular ?>.<?= $field['fieldName'] ?> }}</td>
         </tr>
 <?php endif ?>

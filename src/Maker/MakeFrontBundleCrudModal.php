@@ -185,18 +185,18 @@ class MakeFrontBundleCrudModal extends AbstractMaker
         foreach($FormFields as $name=>$option) {
             $FormFields[$name]['type'] = $FormFields[$name]['type'] ?? null;
             $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."' ";
+                'translation_domain' => '".$entityVarSingular."',";
         }
 
         $name='btn_fermer';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\ButtonType::class;
         $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."', 
+                'translation_domain' => '".$entityVarSingular."',
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-outline-primary me-auto',
-                    'data-bs-dismiss' => \"modal\",
-                ]";
+                    'data-bs-dismiss' => 'modal',
+                ],";
 
         $name='btn_valider';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\SubmitType::class;
@@ -205,7 +205,7 @@ class MakeFrontBundleCrudModal extends AbstractMaker
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-success',
-                ]";
+                ],";
 
         $this->formTypeRenderer->render(
             $formCreateClassDetails,
@@ -221,7 +221,7 @@ class MakeFrontBundleCrudModal extends AbstractMaker
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-success',
-                ]";
+                ],";
         
         $this->formTypeRenderer->render(
             $formUpdateClassDetails,
@@ -241,21 +241,21 @@ class MakeFrontBundleCrudModal extends AbstractMaker
         $name='btn_fermer';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\ButtonType::class;
         $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."', 
+                'translation_domain' => '".$entityVarSingular."',
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-outline-primary me-auto',
-                    'data-bs-dismiss' => \"modal\",
-                ]";
+                    'data-bs-dismiss' => 'modal',
+                ],";
         
         $name='btn_confirm';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\SubmitType::class;
         $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."', 
+                'translation_domain' => '".$entityVarSingular."',
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-danger',
-                ]";
+                ],";
 
         $this->formTypeRenderer->render(
             $formDeleteClassDetails,

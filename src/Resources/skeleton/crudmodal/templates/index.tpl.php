@@ -16,7 +16,7 @@
 
     <!-- Modal -->
     {% if modal is defined and modal is not empty %}
-        {{ include('<?= $entity_twig_var_singular ?>/_modal.html.twig', { modal: modal } ) }}
+        {{ include('<?= $entity_twig_var_singular ?>/_modal.html.twig', {modal: modal}) }}
     {% endif %}
 
     <div class="card" >
@@ -29,7 +29,7 @@
 
             <div class="toolbar">
                 <button id="ajouter" class="btn btn-success" data-bs-target="#modalEditNew" data-bs-toggle="modal" type="button">
-                    <i class="bi-plus-square"></i>  {{ '<?= $entity_twig_var_singular ?>.index.btn_ajouter'|trans({},'<?= $entity_twig_var_singular ?>') }}
+                    <i class="bi-plus-square"></i>  {{ '<?= $entity_twig_var_singular ?>.index.btn_ajouter'|trans({}, '<?= $entity_twig_var_singular ?>') }}
                 </button>
             </div>
 
@@ -45,12 +45,10 @@
     <script src="{{ asset('assets/jquery/tableexport/1.10.21/tableExport.min.js') }}"></script>
     <script src="{{ asset('assets/jquery/tableexport/1.10.21/libs/jsPDF/jspdf.min.js') }}"></script>
     <script src="{{ asset('assets/jquery/tableexport/1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js') }}"></script>
-    
     <script src="{{ asset('assets/bootstrap-table/1.20.2/js/bootstrap-table.min.js') }}"></script>
     <script src="{{ asset('assets/bootstrap-table/1.20.2/js/bootstrap-table-locale-all.min.js') }}"></script>
     <script src="{{ asset('assets/bootstrap-table/1.20.2/dist/extensions/export/bootstrap-table-export.min.js') }}"></script>
     <script>
-    
         $('#table').bootstrapTable({
             locale: 'fr',
             classes: 'table table-striped table-hover',

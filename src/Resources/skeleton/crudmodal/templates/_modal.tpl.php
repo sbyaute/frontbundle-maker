@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             {% if modal.form is defined and modal.form is not empty %}
-                {{ form_start(modal.form, {attr: {novalidate: 'novalidate', class:'form-horizontal'}}) }}
+                {{ form_start(modal.form, {attr: {novalidate: 'novalidate', class: 'form-horizontal'}}) }}
             {% endif %}
             <div class="modal-body">
                 {% if modal.requiredFields is defined and modal.requiredFields == true %}

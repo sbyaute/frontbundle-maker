@@ -8,7 +8,7 @@
 <?= $entity_class_name ?>.show.subtitle: '> <?= $entity_class_name ?>'
 <?= $entity_class_name ?>.show.card-title: 'Détail d''un <?= $entity_class_name ?>'
 <?= $entity_class_name ?>.show.pictotitle: ''
-<?= $entity_class_name ?>.show.btn_supprimer: 'Supprimer'
+<?= $entity_class_name ?>.show.btn_supprimer: '<i class="bi-trash"></i> Supprimer'
 <?= $entity_class_name ?>.show.btn_retourliste: 'Retour à la liste'
 
 <?= $entity_class_name ?>.new.modaltitle: 'Ajouter un <?= $entity_class_name ?>'

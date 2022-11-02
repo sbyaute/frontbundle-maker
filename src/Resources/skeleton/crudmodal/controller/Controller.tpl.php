@@ -5,7 +5,6 @@ namespace <?= $namespace ?>;
 use <?= $entity_full_class_name ?>;
 use <?= $form_create_full_class_name ?>;
 use <?= $form_update_full_class_name ?>;
-use <?= $form_delete_full_class_name ?>;
 <?php if (isset($repository_full_class_name)): ?>
 use <?= $repository_full_class_name ?>;
 <?php endif ?>
@@ -59,7 +58,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.new.error',[],'<?= $entity_var_singular ?>'));
                 return $this->redirectToRoute('<?= $route_name ?>_index');
             }
-            $this->addFlash('notice', $this->translator->trans('<?= $entity_var_singular ?>.new.success',[],'<?= $entity_var_singular ?>'));
+            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.new.success',[],'<?= $entity_var_singular ?>'));
 
             return $this->redirectToRoute('<?= $route_name ?>_index');
         }
@@ -81,7 +80,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
     public function delete(Request $request, <?= $repository_class_name ?> $<?= $repository_var ?>)
     {
         $<?= $entity_var_singular ?> = $<?= $repository_var ?>->find(
-            $request->get('<?= $entity_var_singular ?>_delete')['id']
+            $request->get('delete_form_<?= $entity_var_singular ?>')['id']
         );
 
         try {
@@ -93,7 +92,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
             return $this->redirectToRoute('<?= $route_name ?>_index');
         }
 
-        $this->addFlash('notice', $this->translator->trans('<?= $entity_var_singular ?>.delete.success',[],'<?= $entity_var_singular ?>'));
+        $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.delete.success',[],'<?= $entity_var_singular ?>'));
 
         return $this->redirectToRoute('<?= $route_name ?>_index');
     }
@@ -116,7 +115,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.edit.error',[],'<?= $entity_var_singular ?>'));
                 return $this->redirectToRoute('<?= $route_name ?>_index');
             }
-            $this->addFlash('notice', $this->translator->trans('<?= $entity_var_singular ?>.edit.success',[],'<?= $entity_var_singular ?>'));
+            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.edit.success',[],'<?= $entity_var_singular ?>'));
 
             return $this->redirectToRoute('<?= $route_name ?>_show',['id' => $<?= $entity_var_singular ?>->getId()]);
         }
@@ -129,12 +128,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 'title' => $this->translator->trans('<?= $entity_var_singular ?>.edit.modaltitle', [], '<?= $entity_var_singular ?>'),
                 'requiredFields' => true,
             ],
-            'modalDelete' => [
-                'name' => '<?= $entity_var_singular ?>',
-                'form' => $this->createForm(<?= $form_delete_class_name ?>::class, $<?= $entity_var_singular ?>, [
-                'action' => $this->generateUrl('delete_<?= $route_name ?>'),
-                ])->createView(),
-            ],
+            'modalDeleteRoute' => 'delete_app_<?= $entity_var_singular ?>',
         ]);
     }
 }

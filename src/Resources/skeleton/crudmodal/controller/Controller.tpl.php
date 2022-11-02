@@ -21,7 +21,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
 {
-
     /** @var <?= $repository_class_name ?> */
     private $<?= $repository_var ?>;
     /** @var EntityManagerInterface */
@@ -29,9 +28,9 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
     /** @var TranslatorInterface */
     private $translator;
 
-    public function __construct(<?= $repository_class_name ?> $<?= $repository_var ?>, 
-                                EntityManagerInterface $entityManager, 
-                                TranslatorInterface $translator) 
+    public function __construct(<?= $repository_class_name ?> $<?= $repository_var ?>,
+                                EntityManagerInterface $entityManager,
+                                TranslatorInterface $translator)
     {
         $this-><?= $repository_var ?> = $<?= $repository_var ?>;
         $this->entityManager = $entityManager;
@@ -68,7 +67,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 'form' => $form->createView(),
                 'title' => $this->translator->trans('<?= $entity_var_singular ?>.new.modaltitle', [], '<?= $entity_var_singular ?>'),
                 'requiredFields' => true,
-            ]
+            ],
         ]);
     }
 
@@ -111,6 +110,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 $this->entityManager->flush();
             } catch (\Throwable $th) {
                 $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.edit.error', [], '<?= $entity_var_singular ?>'));
+
                 return $this->redirectToRoute('<?= $route_name ?>_index');
             }
             $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.edit.success', [], '<?= $entity_var_singular ?>'));

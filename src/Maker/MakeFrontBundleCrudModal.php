@@ -135,12 +135,6 @@ class MakeFrontBundleCrudModal extends AbstractMaker
             'Form\\'.$entityClassDetails->getRelativeNameWithoutSuffix().'\\',
             'Type'
         );
-
-        $formDeleteClassDetails = $generator->createClassNameDetails(
-            $entityClassDetails->getRelativeNameWithoutSuffix().'DeleteType',
-            'Form\\'.$entityClassDetails->getRelativeNameWithoutSuffix().'\\',
-            'Type'
-        );
         
         //$arr = $inflector->pluralize($entityClassDetails->getShortName());
         $arr[] = $entityClassDetails->getShortName();
@@ -165,8 +159,6 @@ class MakeFrontBundleCrudModal extends AbstractMaker
                 'form_create_class_name' => $formCreateClassDetails->getShortName(),
                 'form_update_full_class_name' => $formUpdateClassDetails->getFullName(),
                 'form_update_class_name' => $formUpdateClassDetails->getShortName(),
-                'form_delete_full_class_name' => $formDeleteClassDetails->getFullName(),
-                'form_delete_class_name' => $formDeleteClassDetails->getShortName(),
                 'route_path' => Str::asRoutePath($controllerClassDetails->getRelativeNameWithoutSuffix()),
                 'route_name' => $routeName,
                 'templates_path' => $templatesPath,
@@ -228,52 +220,9 @@ class MakeFrontBundleCrudModal extends AbstractMaker
             $FormFields,
             $entityClassDetails
         );
-
-        unset($FormFields);
-        $constraintClasses = [];
-        $extraUseClasses = ['Symfony\Component\Validator\Constraints\NotBlank'];
-
-        $name='id';
-        $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\HiddenType::class;
-        $FormFields[$name]['options_code'] = "                'constraints' => [new NotBlank()],
-                ";
-        
-        $name='btn_fermer';
-        $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\ButtonType::class;
-        $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."',
-                'label_html' => true,
-                'attr' => [
-                    'class' => 'btn btn-outline-primary me-auto',
-                    'data-bs-dismiss' => 'modal',
-                ],";
-        
-        $name='btn_confirm';
-        $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\SubmitType::class;
-        $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."',
-                'label_html' => true,
-                'attr' => [
-                    'class' => 'btn btn-danger',
-                ],";
-
-        $this->formTypeRenderer->render(
-            $formDeleteClassDetails,
-            $FormFields,
-            $entityClassDetails,
-            [],
-            $extraUseClasses
-        );
-
-
-
+ 
         $templates = [
             '_modal' => [
-                'route_name' => $routeName,
-                'entity_twig_var_singular' => $entityTwigVarSingular,
-                'entity_identifier' => $entityDoctrineDetails->getIdentifier(),
-            ],
-            '_delete_modal' => [
                 'route_name' => $routeName,
                 'entity_twig_var_singular' => $entityTwigVarSingular,
                 'entity_identifier' => $entityDoctrineDetails->getIdentifier(),

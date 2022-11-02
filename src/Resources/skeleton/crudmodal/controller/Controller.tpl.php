@@ -9,9 +9,6 @@ use <?= $form_update_full_class_name ?>;
 use <?= $repository_full_class_name ?>;
 <?php endif ?>
 use Symfony\Bundle\FrameworkBundle\Controller\<?= $parent_class_name ?>;
-use App\Repository\OrganismeRepository;
-use App\Form\DeleteFormType;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,10 +52,11 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 $this->entityManager->persist($<?= $entity_var_singular ?>);
                 $this->entityManager->flush();
             } catch (\Throwable $th) {
-                $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.new.error',[],'<?= $entity_var_singular ?>'));
+                $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.new.error', [], '<?= $entity_var_singular ?>'));
+                
                 return $this->redirectToRoute('<?= $route_name ?>_index');
             }
-            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.new.success',[],'<?= $entity_var_singular ?>'));
+            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.new.success', [], '<?= $entity_var_singular ?>'));
 
             return $this->redirectToRoute('<?= $route_name ?>_index');
         }
@@ -67,7 +65,7 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
             'tableData' => $serializer->serialize($this-><?= $repository_var ?>->findAll(), JsonEncoder::FORMAT),
             'modal' => [
                 '<?= $entity_var_singular ?>' => $<?= $entity_var_singular ?>,
-                'form'  => $form->createView(),
+                'form' => $form->createView(),
                 'title' => $this->translator->trans('<?= $entity_var_singular ?>.new.modaltitle', [], '<?= $entity_var_singular ?>'),
                 'requiredFields' => true,
             ]
@@ -87,12 +85,12 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
             $this->entityManager->remove($<?= $entity_var_singular ?>);
             $this->entityManager->flush();
         } catch (\Throwable $th) {
-            $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.delete.error',[],'<?= $entity_var_singular ?>'));
+            $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.delete.error', [], '<?= $entity_var_singular ?>'));
 
             return $this->redirectToRoute('<?= $route_name ?>_index');
         }
 
-        $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.delete.success',[],'<?= $entity_var_singular ?>'));
+        $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.delete.success', [], '<?= $entity_var_singular ?>'));
 
         return $this->redirectToRoute('<?= $route_name ?>_index');
     }
@@ -112,12 +110,12 @@ class <?= $class_name ?> extends <?= $parent_class_name; ?><?= "\n" ?>
                 $this->entityManager->persist($<?= $entity_var_singular ?>);
                 $this->entityManager->flush();
             } catch (\Throwable $th) {
-                $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.edit.error',[],'<?= $entity_var_singular ?>'));
+                $this->addFlash('error', $this->translator->trans('<?= $entity_var_singular ?>.edit.error', [], '<?= $entity_var_singular ?>'));
                 return $this->redirectToRoute('<?= $route_name ?>_index');
             }
-            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.edit.success',[],'<?= $entity_var_singular ?>'));
+            $this->addFlash('success', $this->translator->trans('<?= $entity_var_singular ?>.edit.success', [], '<?= $entity_var_singular ?>'));
 
-            return $this->redirectToRoute('<?= $route_name ?>_show',['id' => $<?= $entity_var_singular ?>->getId()]);
+            return $this->redirectToRoute('<?= $route_name ?>_show', ['id' => $<?= $entity_var_singular ?>->getId()]);
         }
 
         return $this->render('<?= $templates_path ?>/show.html.twig', [

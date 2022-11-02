@@ -193,7 +193,7 @@ class MakeFrontBundleCrudModal extends AbstractMaker
         $name='btn_valider';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\SubmitType::class;
         $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."', 
+                'translation_domain' => '".$entityVarSingular."',
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-success',
@@ -209,7 +209,7 @@ class MakeFrontBundleCrudModal extends AbstractMaker
         $name='btn_mettreajour';
         $FormFields[$name]['type'] = \Symfony\Component\Form\Extension\Core\Type\SubmitType::class;
         $FormFields[$name]['options_code'] = "                'label' => '".$entityVarSingular.".".$name."',
-                'translation_domain' => '".$entityVarSingular."', 
+                'translation_domain' => '".$entityVarSingular."',
                 'label_html' => true,
                 'attr' => [
                     'class' => 'btn btn-success',

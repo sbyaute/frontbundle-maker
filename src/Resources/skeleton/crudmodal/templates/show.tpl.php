@@ -13,8 +13,8 @@
 {{ include('<?= $entity_twig_var_singular ?>/_modal.html.twig', {modal: modalEdit}) }}
 {% endif %}
 
-{% if modalDelete is defined and modalDelete is not empty %}
-{{ include('<?= $entity_twig_var_singular ?>/_delete_modal.html.twig', {modal: modalDelete}) }}
+{% if modalDeleteRoute is defined and modalDeleteRoute is not empty %}
+{{ generate_delete_modal('<?= $entity_twig_var_singular ?>', modalDeleteRoute) }}
 {% endif %}
 
 <div class="card" >
@@ -45,7 +45,9 @@
         <div class="row">
             <span class="text-end">
                 <button class="btn btn-primary" data-bs-target="#modalEditNew" data-bs-toggle="modal" type="button"><i class="bi-pen"></i> Editer</button>
-                <button class="delete-entity btn btn-danger" data-bs-target="#modalDelete_<?= $entity_twig_var_singular ?>" data-bs-toggle="modal" type="button" data-id="{{ <?= $entity_twig_var_singular ?>.id }}"><i class="bi-trash"></i> {{ '<?= $entity_twig_var_singular ?>.show.btn_supprimer'|trans({}, '<?= $entity_twig_var_singular ?>') }}</button>
+                {% if modalDeleteRoute is defined and modalDeleteRoute is not empty %}
+                <button data-id="{{ <?= $entity_twig_var_singular ?>.id }}" data-modal-name="<?= $entity_twig_var_singular ?>" class="delete-entity btn btn-danger"> {{ '<?= $entity_twig_var_singular ?>.show.btn_supprimer'|trans({}, '<?= $entity_twig_var_singular ?>')|raw }} </button>                
+                {% endif %}
             </span>
             <a class="text-start" href="{{ path('<?= $route_name ?>_index') }}">{{ '<?= $entity_twig_var_singular ?>.show.btn_retourliste'|trans({}, '<?= $entity_twig_var_singular ?>') }}</a>
         </div>

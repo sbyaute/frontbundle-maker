@@ -46,7 +46,7 @@
             <span class="text-end">
                 <button class="btn btn-primary" data-bs-target="#modalEditNew" data-bs-toggle="modal" type="button"><i class="bi-pen"></i> Editer</button>
                 {% if modalDeleteRoute is defined and modalDeleteRoute is not empty %}
-                <button data-id="{{ <?= $entity_twig_var_singular ?>.id }}" data-modal-name="<?= $entity_twig_var_singular ?>" class="delete-entity btn btn-danger"> {{ '<?= $entity_twig_var_singular ?>.show.btn_supprimer'|trans({}, '<?= $entity_twig_var_singular ?>')|raw }} </button>                
+                <button data-id="{{ <?= $entity_twig_var_singular ?>.id }}" data-modal-name="<?= $entity_twig_var_singular ?>" class="delete-entity btn btn-danger"> {{ '<?= $entity_twig_var_singular ?>.show.btn_supprimer'|trans({}, '<?= $entity_twig_var_singular ?>')|raw }} </button>
                 {% endif %}
             </span>
             <a class="text-start" href="{{ path('<?= $route_name ?>_index') }}">{{ '<?= $entity_twig_var_singular ?>.show.btn_retourliste'|trans({}, '<?= $entity_twig_var_singular ?>') }}</a>

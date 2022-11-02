@@ -40,7 +40,7 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
+{% block javascripts_end %}
     {{ parent() }}
     <script src="{{ asset('assets/jquery/tableexport/1.10.21/tableExport.min.js') }}"></script>
     <script src="{{ asset('assets/jquery/tableexport/1.10.21/libs/jsPDF/jspdf.min.js') }}"></script>
